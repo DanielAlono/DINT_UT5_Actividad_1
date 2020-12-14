@@ -11,21 +11,31 @@
         Background="SkyBlue">
     <Window.Resources>
         <local:paisTipoConverter x:Key="paisTipoConverter"></local:paisTipoConverter>
-        <Style TargetType="StackPanel"
-               x:Key="platosStackPanel">
-            <Setter Property="Margin"
-                    Value="5" />
-            <Setter Property="Height"
-                    Value="200" />
-            <Setter Property="Width"
-                    Value="180" />
-            <Setter Property="Background"
-                    Value="LightBlue" />
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect />
-                </Setter.Value>
-            </Setter>
+        <Style TargetType="Image"
+               x:Key="paisImage">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Americana">
+                    <Setter Property="Source"
+                            Value="united_states.png" />
+                    <Setter Property="ToolTip"
+                            Value="Comida americana" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="China">
+                    <Setter Property="Source"
+                            Value="china.png" />
+                    <Setter Property="ToolTip"
+                            Value="Comida asiática" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Mexicana">
+                    <Setter Property="Source"
+                            Value="mexico.png" />
+                    <Setter Property="ToolTip"
+                            Value="Comida mexicana" />
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="Image"
                x:Key="glutenImage">
@@ -88,6 +98,26 @@
             <Setter Property="Margin"
                     Value="5,5,5,0" />
         </Style>
+        <Style TargetType="TextBlock"
+               x:Key="tituloTextBlock">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Americana">
+                    <Setter Property="FontFamily"
+                            Value="Slim Summer" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="China">
+                    <Setter Property="FontFamily"
+                            Value="Chinese Wok Food St" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=Tipo}"
+                             Value="Mexicana">
+                    <Setter Property="FontFamily"
+                            Value="Taco Salad" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
         <Style TargetType="TextBox"
                x:Key="formularioTextBox">
             <Setter Property="Margin"
@@ -147,7 +177,8 @@
                         <Viewbox Grid.Row="0"
                                  Margin="5"
                                  HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
+                            <TextBlock Text="{Binding Path=Nombre}"
+                                       Style="{StaticResource tituloTextBlock}"></TextBlock>
                         </Viewbox>
                         <Image Grid.Row="1"
                                Source="{Binding Path=Imagen}"
@@ -157,7 +188,7 @@
                                    Margin="10,5,5,10">
                             <Image DockPanel.Dock="Left"
                                    Height="30"
-                                   Source="{Binding Path=Tipo, Converter={StaticResource paisTipoConverter}}"></Image>
+                                   Style="{StaticResource paisImage}"></Image>
                             <StackPanel DockPanel.Dock="Right"
                                         Orientation="Horizontal"
                                         HorizontalAlignment="Right">
