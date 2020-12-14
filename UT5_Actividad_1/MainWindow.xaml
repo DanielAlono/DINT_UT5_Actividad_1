@@ -102,6 +102,7 @@
                Background="White">
         <StackPanel DockPanel.Dock="Right"
                     x:Name="formularioStackPanel"
+                    DataContext="{Binding ElementName=PlatosListBox, Path=SelectedItem}"
                     Width="200"
                     Margin="5"
                     Background="LightGray">
@@ -128,7 +129,6 @@
         </StackPanel>
         <ListBox x:Name="PlatosListBox"
                  ItemsSource="{Binding}"
-                 SelectionChanged="PlatosListBox_SelectionChanged"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemTemplate>
                 <DataTemplate>

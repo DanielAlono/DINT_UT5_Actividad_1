@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,19 +18,14 @@ namespace UT5_Actividad_1
         {
             InitializeComponent();
             nombresComboBox();
-            platos = Plato.GetSamples("C:/Users/dealo/OneDrive/Pictures/Imagenes");
-            PlatosListBox.DataContext = platos;         
-        }
-        
-        private void nombresComboBox()
-        {
-            List<String> paises = new List<string>() { "Americana", "China", "Mexicana"};
-            opcionesComboBox.ItemsSource = paises;
+            platos = Plato.GetSamples(Path.GetFileName(@"../Resources/Imagenes"));
+            PlatosListBox.DataContext = platos;
         }
 
-        private void PlatosListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void nombresComboBox()
         {
-            formularioStackPanel.DataContext = platos[PlatosListBox.SelectedIndex];
+            List<String> paises = new List<string>() { "Americana", "China", "Mexicana" };
+            opcionesComboBox.ItemsSource = paises;
         }
     }
 }

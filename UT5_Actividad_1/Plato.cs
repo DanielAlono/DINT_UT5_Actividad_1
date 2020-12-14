@@ -135,8 +135,7 @@ namespace UT5_Actividad_1
         public static List<Plato> GetSamples(string rutaImagenes)
         {
             List<Plato> lista = new List<Plato>();
-
-            lista.Add(new Plato("Hamburguesa", Path.Combine(rutaImagenes, @"burguer.jpg"), "Americana", true, false, true, true));
+            lista.Add(new Plato("Hamburguesa", Path.Combine(rutaImagenes,"burguer.jpg"), "Americana", true, false, true, true));
             lista.Add(new Plato("Dumplings", Path.Combine(rutaImagenes, @"dumplings.jpg"), "China", true, true, false, false));
             lista.Add(new Plato("Tacos", Path.Combine(rutaImagenes, @"tacos.jpg"), "Mexicana", true, false, false, true));
             lista.Add(new Plato("Cerdo agridulce", Path.Combine(rutaImagenes, @"cerdoagridulce.jpg"), "China", true, true, false, true));
