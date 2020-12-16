@@ -242,8 +242,8 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         Background="{TemplateBinding Background}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Margin="1"
-                        CornerRadius="3"
+                        Padding="3"
+                        CornerRadius="5"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                     <Grid x:Name="markGrid"
                           Margin="1">
